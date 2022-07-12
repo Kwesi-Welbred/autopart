@@ -10,8 +10,8 @@
         android:id="@+id/MyToolText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
         android:layout_marginRight="10dp"
         android:fontFamily="@font/metropolis_semibold"
         android:text="@string/checkout"
@@ -19,40 +19,46 @@
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cartRecView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="25dp"
         android:layout_marginRight="10dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/linear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MyToolText"
+        app:layout_constraintVertical_bias="0.0"
         tools:itemCount="2"
         tools:listitem="@layout/checkout_list">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="88dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/cartRecView">
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textStyle="bold"
             android:fontFamily="@font/metropolis_regular"
             android:text="@string/shipping_address"
-            android:textColor="@color/textAd"
-            android:textSize="@dimen/_16ssp" />
+            android:textColor="@color/mainText"
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -62,18 +68,18 @@
             android:fontFamily="@font/metropolis_regular"
             android:text="@string/billingText"
             android:textColor="@color/textAd"
-            android:textSize="@dimen/_14ssp" />
+            android:textSize="@dimen/_12ssp" />
 
         <TextView
             android:id="@+id/address_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_weight="1"
+            android:clickable="true"
             android:fontFamily="@font/metropolis_semibold"
             android:gravity="end"
             android:text="@string/change"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:clickable="true"
             android:textColor="@color/mainText"
             android:textSize="@dimen/_11ssp" />
 
@@ -81,6 +87,7 @@
 
     <LinearLayout
 
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
