@@ -23,11 +23,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textStyle="bold"
             android:fontFamily="@font/metropolis_regular"
             android:text="@string/shipping_address"
             android:textColor="@color/mainText"
-            android:textSize="@dimen/_15ssp" />
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
@@ -38,7 +38,7 @@
             android:fontFamily="@font/metropolis_regular"
             android:text="@string/billingText"
             android:textColor="@color/textAd"
-            android:textSize="@dimen/_12ssp" />
+            android:textSize="@dimen/_14ssp" />
 
         <TextView
             android:id="@+id/address_details"
@@ -50,7 +50,7 @@
             android:fontFamily="@font/metropolis_semibold"
             android:gravity="end"
             android:text="@string/change"
-            android:textColor="@color/mainText"
+            android:textColor="@color/black"
             android:textSize="@dimen/_11ssp" />
 
     </LinearLayout>
@@ -71,9 +71,8 @@
             android:layout_height="wrap_content"
             android:text="@string/payment_method"
             android:textColor="@color/mainText"
-            android:fontFamily="@font/metropolis_regular"
             android:textSize="@dimen/_15ssp"
-             />
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -122,7 +121,6 @@
         app:layout_constraintTop_toBottomOf="@+id/payment">
 
         <TextView
-            android:id="@+id/item_count"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -140,7 +138,7 @@
             android:gravity="end"
             android:text="@string/arrival_time"
             android:textColor="@color/mainText"
-            android:textSize="@dimen/_11sdp" />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -188,7 +186,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:fontFamily="@font/metropolis_regular"
+                android:fontFamily="@font/metropolis_semibold"
                 android:gravity="end"
                 android:text="@string/ghc_90"
                 android:textColor="@color/mainText"
@@ -218,7 +216,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:fontFamily="@font/metropolis_regular"
+                android:fontFamily="@font/metropolis_semibold"
                 android:gravity="end"
                 android:text="@string/ghc_30"
                 android:textColor="@color/mainText"
@@ -251,7 +249,7 @@
                 android:fontFamily="@font/metropolis_semibold"
                 android:gravity="end"
                 android:text="@string/ghc_120"
-                android:textColor="@color/mainText"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
         </LinearLayout>
