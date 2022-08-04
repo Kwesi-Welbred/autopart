@@ -42,11 +42,11 @@ class RegisterFragment : Fragment(R.layout.register_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = RegisterFragmentBinding.bind(view)
-       // binding.signUpBtn.isEnabled = false
-       // binding.emailEt.setOnClickListener { binding.signUpBtn.isEnabled = true }
+        // binding.signUpBtn.isEnabled = false
+        // binding.emailEt.setOnClickListener { binding.signUpBtn.isEnabled = true }
 
         binding.signUpBtn.setOnClickListener {
-            login()
+            registerFun()
         }
         binding.loginTv.setOnClickListener {
             if (findNavController().currentDestination?.id == R.id.registerFragment) {
@@ -105,11 +105,11 @@ class RegisterFragment : Fragment(R.layout.register_fragment) {
 
     }
 
-    private fun login() {
+    private fun registerFun() {
         if (isNetworkAvailable(requireContext())) {
             val firstName = binding.firstName.text.toString()
             val lastName = binding.lastNameEt.text.toString()
-            val emailText = binding.emailEt.text?.toString()
+            val emailText = binding.emailEt.text?.trim().toString()
             val passwordText = binding.passwordEt.text.toString()
             val confirmPassword = binding.confirmPasswordEt.text.toString()
             val fullNameText = "$firstName $lastName}"
@@ -117,14 +117,20 @@ class RegisterFragment : Fragment(R.layout.register_fragment) {
                 !UtilityMethods.emailValidator(emailText) -> {
                     binding.emailIl.apply {
                         helperText = "Invalid email"
-                        setBoxStrokeColorStateList(AppCompatResources.getColorStateList(
-                            requireContext(), R.color.primary
-                        ))
+                        setBoxStrokeColorStateList(
+                            AppCompatResources.getColorStateList(
+                                requireContext(), R.color.primary
+                            )
+                        )
                     }
-                    view?.showSnackBar("Invalid email")
+                    view?.showSnackBar("You entered incorrect email")
                 }
-                passwordText.contentEquals(confirmPassword) -> {
-                    viewModel.signUpUser(emailText.toString(), passwordText, fullNameText)
+                passwordText == confirmPassword -> {
+                    viewModel.signUpUser(
+                        email = emailText,
+                        password = passwordText,
+                        fullName = fullNameText
+                    )
                         .observe(viewLifecycleOwner) {
                             when (it.status) {
                                 Status.SUCCESS -> {
@@ -132,12 +138,17 @@ class RegisterFragment : Fragment(R.layout.register_fragment) {
                                     binding.normalLoader.visibility = View.VISIBLE
                                     viewModel.saveUser(
                                         it.data?.fullName.toString(),
-                                        it.data?.email.toString(),
+                                        it.data?.email.toString().trim(),
                                         it.data?.password.toString()
                                     )
                                     binding.normalLoader.visibility = View.INVISIBLE
                                     auth.currentUser?.sendEmailVerification()
                                     view?.showSnackBar("User account registered")
+
+                                    // navigateToLogin
+
+                                    NavHostFragment.findNavController(this)
+                                        .navigate(R.id.action_registerFragment_to_loginFragment)
                                 }
                                 Status.ERROR -> {
                                     binding.signUpBtn.isEnabled = true
@@ -154,14 +165,18 @@ class RegisterFragment : Fragment(R.layout.register_fragment) {
                 else -> {
                     binding.passwordIl.apply {
                         helperText = "Password mismatch"
-                          setBoxStrokeColorStateList(AppCompatResources.getColorStateList(
-                            requireContext(), R.color.primary
-                        ))
+                        setBoxStrokeColorStateList(
+                            AppCompatResources.getColorStateList(
+                                requireContext(), R.color.primary
+                            )
+                        )
                     }
                     binding.confirmPasswordLay.apply {
-                          setBoxStrokeColorStateList(AppCompatResources.getColorStateList(
-                            requireContext(), R.color.primary
-                        ))
+                        setBoxStrokeColorStateList(
+                            AppCompatResources.getColorStateList(
+                                requireContext(), R.color.primary
+                            )
+                        )
                         helperText = "Password mismatch"
                     }
                     view?.showSnackBar("Password mismatch")
@@ -172,6 +187,14 @@ class RegisterFragment : Fragment(R.layout.register_fragment) {
             view?.showSnackBar("Please, check your internet connection")
         }
     }
+
+
+    /* val navigateToLogin = if (findNavController().currentDestination?.id == R.id.registerFragment) {
+         NavHostFragment.findNavController(this)
+             .navigate(R.id.action_registerFragment_to_loginFragment)
+     } else {
+              view?.showSnackBar("Can't navigate")
+     }*/
 
     override fun onDestroy() {
         super.onDestroy()

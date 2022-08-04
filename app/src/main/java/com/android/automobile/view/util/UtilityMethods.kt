@@ -105,6 +105,10 @@ object UtilityMethods {
         return matcher?.matches() ?: false
     }
 
+     fun String.isEmailValid(): Boolean {
+        return this.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(this).matches()
+    }
+
 
     fun getFileNameByUri(context: Context, uri: Uri): String? {
         var filepath: String? = "" //default fileName

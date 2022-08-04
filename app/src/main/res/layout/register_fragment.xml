@@ -100,7 +100,7 @@
             android:layout_height="match_parent"
             android:autofillHints="emailAddress"
             android:fontFamily="@font/metropolis_regular"
-            android:inputType="textEmailAddress"
+            android:inputType="textWebEmailAddress"
             android:maxLines="1"
             android:textColor="@color/mainText"
             android:textSize="@dimen/_11ssp" />

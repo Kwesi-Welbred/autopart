@@ -11,6 +11,7 @@ import com.android.automobile.model.User
 import com.android.automobile.view.util.NetworkManager
 import com.android.automobile.view.util.Resource
 import com.android.automobile.view.util.UtilityMethods
+import com.android.automobile.view.util.UtilityMethods.isEmailValid
 import com.google.android.gms.tasks.RuntimeExecutionException
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseNetworkException
@@ -36,12 +37,12 @@ class RegisterViewModel @Inject constructor(
             TextUtils.isEmpty(email) && TextUtils.isEmpty(password) && TextUtils.isEmpty(fullName) -> {
                 userLiveData.postValue(Resource.error(null, "Field must not be empty"))
             }
-            password.length <= 8 -> {
+            password.length < 8 -> {
                 userLiveData.postValue(Resource.error(null, "Password must not be less than 8"))
             }
-            UtilityMethods.emailValidator(email)->{
-                userLiveData.postValue(Resource.error(null,"You entered incorrect password"))
-            }
+           /* email.isEmailValid()->{
+                userLiveData.postValue(Resource.error(null,"You entered incorrect email"))
+            }*/
             networkControl.isConnected() -> {
                 userLiveData.postValue(Resource.loading(null))
                 firebaseAuth.fetchSignInMethodsForEmail(email).addOnCompleteListener {
