@@ -58,7 +58,8 @@ class CarAdapter(private val impl: CarImpl) :
                     target: Target<Drawable>?,
                     isFirstResource: Boolean
                 ): Boolean {
-                    TODO("Not yet implemented")
+                    return true
+                   // TODO("Not yet implemented")
                 }
 
                 override fun onResourceReady(
@@ -68,7 +69,8 @@ class CarAdapter(private val impl: CarImpl) :
                     dataSource: DataSource?,
                     isFirstResource: Boolean
                 ): Boolean {
-                    TODO("Not yet implemented")
+                    return false
+                   // TODO("Not yet implemented")
                 }
             })
             .into(holder.binding.productImageSingleProduct)

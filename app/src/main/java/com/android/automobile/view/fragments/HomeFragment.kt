@@ -39,55 +39,12 @@ class HomeFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl,
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        //dataAdapter.setData()
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
-        val recyclerAdapter: CarAdapter by lazy {
-            CarAdapter(this)
-        }
+        binding.lifecycleOwner = this
+        binding.productVm = productViewmodel
+        initRecViews()
 
-        val coverAdapter: CoverAdapter by lazy {
-            CoverAdapter(this)
-        }
-
-        val coverRecyclerView = binding.coverRecView
-        coverRecyclerView.adapter = coverAdapter
-        coverRecyclerView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        coverRecyclerView.setHasFixedSize(true)
-
-        productViewmodel.getAllFromCover.observe(viewLifecycleOwner, Observer {
-            lifecycleScope.launch {
-                coverAdapter.submitList(it)
-            }
-        })
-
-        val motorAdapter: MotorAdapter by lazy {
-            MotorAdapter(this)
-        }
-
-        val motorRecyclerView = binding.motorRecycler
-        motorRecyclerView.adapter = motorAdapter
-        motorRecyclerView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        motorRecyclerView.setHasFixedSize(true)
-
-        productViewmodel.getAllFromMotors.observe(viewLifecycleOwner, Observer {
-            lifecycleScope.launch {
-                motorAdapter.submitList(it)
-            }
-        })
-
-        val recyclerView = binding.carProductRecycler
-        recyclerView.adapter = recyclerAdapter
-        recyclerView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        recyclerView.setHasFixedSize(true)
-        productViewmodel.getAllFromCars.observe(viewLifecycleOwner, Observer { list ->
-            lifecycleScope.launch {
-                recyclerAdapter.submitList(list)
-            }
-        })
 
         binding.carViewAll.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_detailsFragment)
@@ -95,6 +52,27 @@ class HomeFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl,
         }
 
         return binding.root
+    }
+
+
+
+    private fun initRecViews(){
+        val coverRecyclerView = binding.coverRecView
+        coverRecyclerView.adapter = CoverAdapter(this)
+        coverRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        coverRecyclerView.setHasFixedSize(true)
+
+        val motorRecyclerView = binding.motorRecycler
+        motorRecyclerView.adapter = MotorAdapter(this)
+        motorRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        motorRecyclerView.setHasFixedSize(true)
+
+
+        val recyclerView = binding.carProductRecycler
+        recyclerView.adapter = CarAdapter(this)
+        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.setHasFixedSize(true)
+
     }
 
     override fun onViewDetailListener(car: CarAccessories) {
