@@ -33,7 +33,7 @@ class CarAdapter(private val impl: CarImpl) :
 //            binding.productRating.rating = list?.rating!!.toFloat()
             binding.productPrice.text = "Ghc " + list?.price
             binding.productName.text = list?.productName
-            binding.productImageSingleProduct.load(list?.imgUrl)
+           // binding.productImageSingleProduct=(list?.imgUrl)
         }
     }
 
@@ -49,32 +49,6 @@ class CarAdapter(private val impl: CarImpl) :
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         val getItemPosition = getItem(position)
         holder.bind(getItemPosition)
-        Glide.with(holder.itemView.context)
-            .load(getItemPosition.imgUrl)
-            .listener(object : RequestListener<Drawable>{
-                override fun onLoadFailed(
-                    e: GlideException?,
-                    model: Any?,
-                    target: Target<Drawable>?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    return true
-                   // TODO("Not yet implemented")
-                }
-
-                override fun onResourceReady(
-                    resource: Drawable?,
-                    model: Any?,
-                    target: Target<Drawable>?,
-                    dataSource: DataSource?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    return false
-                   // TODO("Not yet implemented")
-                }
-            })
-            .into(holder.binding.productImageSingleProduct)
-
         holder.binding.productAddToFavSingleProduct.apply {
             setOnClickListener {
                 impl.onAddToFavoriteListener(getItemPosition)
