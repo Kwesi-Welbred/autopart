@@ -1,6 +1,7 @@
 package com.android.automobile.view.adapters
 
 import android.annotation.SuppressLint
+import android.graphics.drawable.Drawable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,9 +13,11 @@ import com.android.automobile.R
 import com.android.automobile.databinding.ProductListBinding
 import com.android.automobile.di.AutoMobileApp
 import com.android.automobile.model.CarAccessories
-import com.android.automobile.model.Favorites
 import com.bumptech.glide.Glide
-import kotlinx.coroutines.runBlocking
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 
 class CarAdapter(private val impl: CarImpl) :
     ListAdapter<CarAccessories, CarAdapter.RecyclerViewHolder>(ListComparator()) {
@@ -46,25 +49,34 @@ class CarAdapter(private val impl: CarImpl) :
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         val getItemPosition = getItem(position)
         holder.bind(getItemPosition)
-        Glide.with(holder.itemView.context).load(getItemPosition.imgUrl)
+        Glide.with(holder.itemView.context)
+            .load(getItemPosition.imgUrl)
+            .listener(object : RequestListener<Drawable>{
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    TODO("Not yet implemented")
+                }
+            })
             .into(holder.binding.productImageSingleProduct)
 
         holder.binding.productAddToFavSingleProduct.apply {
             setOnClickListener {
                 impl.onAddToFavoriteListener(getItemPosition)
                 this.setImageResource(R.drawable.ic_favorite)
-
-               /* val list = mutableListOf(
-                    Favorites(
-                        imgUrl = getItemPosition.imgUrl,
-                        price = getItemPosition.price,
-                        brandName = getItemPosition.brandName
-                    )
-                )
-                runBlocking {
-                    repository.insertToRoom(list)
-                }*/
-
                 Log.d("FAVORITES", "$getItemPosition")
             }
         }

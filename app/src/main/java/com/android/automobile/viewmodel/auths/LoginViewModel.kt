@@ -74,7 +74,7 @@ class LoginViewModel @Inject constructor(
                                                     userLiveData.postValue(
                                                         Resource.error(
                                                             null,
-                                                            "Email is not verified, check your email"
+                                                            "Email is not verified, Please check your inbox"
                                                         )
                                                     )
                                                 }
