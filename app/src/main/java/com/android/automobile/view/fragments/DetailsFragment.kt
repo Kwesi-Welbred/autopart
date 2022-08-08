@@ -98,7 +98,7 @@ class DetailsFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl {
 
 
                 var incrementAmt = 0
-                val totalAmt = Integer.parseInt(amt.text.toString())
+                val totalAmt = amt.text.toString().let { it1 -> Integer.parseInt(it1) }
                 var incrementNum = Integer.parseInt(qty.text.toString())
 
                 pos.setOnClickListener {

@@ -51,26 +51,6 @@ class CarAdapter(private val impl: CarImpl) :
         holder.bind(getItemPosition)
         Glide.with(holder.itemView.context)
             .load(getItemPosition.imgUrl)
-            .listener(object : RequestListener<Drawable>{
-                override fun onLoadFailed(
-                    e: GlideException?,
-                    model: Any?,
-                    target: Target<Drawable>?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    TODO("Not yet implemented")
-                }
-
-                override fun onResourceReady(
-                    resource: Drawable?,
-                    model: Any?,
-                    target: Target<Drawable>?,
-                    dataSource: DataSource?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    TODO("Not yet implemented")
-                }
-            })
             .into(holder.binding.productImageSingleProduct)
 
         holder.binding.productAddToFavSingleProduct.apply {
