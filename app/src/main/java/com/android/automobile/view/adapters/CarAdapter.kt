@@ -51,6 +51,7 @@ class CarAdapter(private val impl: CarImpl) :
         holder.bind(getItemPosition)
         Glide.with(holder.itemView.context)
             .load(getItemPosition.imgUrl)
+            .placeholder(R.drawable.loading_animation)
             .into(holder.binding.productImageSingleProduct)
 
         holder.binding.productAddToFavSingleProduct.apply {
