@@ -78,7 +78,7 @@ class HomeFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl,
     override fun onViewDetailListener(car: CarAccessories) {
         val bundle = Bundle()
         bundle.putString(price, car.price)
-        bundle.putString(imgUrl, car.imgUrl)
+        bundle.putString(imgUrl, car.imgSrcUrl)
         bundle.putString("name", car.brandName)
         bundle.putString("rating", car.rating)
         findNavController().navigate(R.id.action_homeFragment_to_detailsFragment, bundle)
@@ -88,7 +88,7 @@ class HomeFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl,
     override fun onAddToFavoriteListener(favorites: CarAccessories) {
         val list = mutableListOf(
             Favorites(
-                imgUrl = favorites.imgUrl,
+                imgUrl = favorites.imgSrcUrl,
                 price = favorites.price,
                 brandName = favorites.brandName
             )

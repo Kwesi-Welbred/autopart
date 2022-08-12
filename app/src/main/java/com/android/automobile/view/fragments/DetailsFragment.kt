@@ -159,14 +159,14 @@ class DetailsFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl {
         with(binding) {
             productNameProductDetailsPage.text = car.brandName
             productPriceProductDetailsPage.text = car.price
-            productImageProductDetailsPage.load(car.imgUrl)
+            productImageProductDetailsPage.load(car.imgSrcUrl)
         }
     }
 
     override fun onAddToFavoriteListener(favorites: CarAccessories) {
         val list = mutableListOf(
             Favorites(
-                imgUrl = favorites.imgUrl,
+                imgUrl = favorites.imgSrcUrl,
                 price = favorites.price,
                 brandName = favorites.brandName
             )

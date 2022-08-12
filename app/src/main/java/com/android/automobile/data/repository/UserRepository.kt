@@ -1,11 +1,12 @@
 package com.android.automobile.data.repository
 
+import com.android.automobile.data.dao.UserDao
 import com.android.automobile.data.source.remote.FireBaseSource
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import javax.inject.Inject
 
 
-class UserRepository @Inject constructor(private val fireBaseSource: FireBaseSource) {
+class UserRepository @Inject constructor(private val fireBaseSource: FireBaseSource, private val userDao: UserDao) {
 
     fun signUpUser(fullName: String, email: String, password: String) =
         fireBaseSource.signUpUser(fullName,email, password)
@@ -22,6 +23,8 @@ class UserRepository @Inject constructor(private val fireBaseSource: FireBaseSou
     val getCurrentUser = fireBaseSource.currentUser()
     val searchUser = fireBaseSource.fetchUser()
     val singOutUser = fireBaseSource.logout()
+
+    fun signInWithRoom(email: String, password: String) = userDao.getAllFromUsers()
 
 
 }

@@ -33,7 +33,9 @@ class CarAdapter(private val impl: CarImpl) :
 //            binding.productRating.rating = list?.rating!!.toFloat()
             binding.productPrice.text = "Ghc " + list?.price
             binding.productName.text = list?.productName
-           // binding.productImageSingleProduct=(list?.imgUrl)
+            //binding.carAccessories?.imgSrcUrl = list?.imgSrcUrl
+            binding.productImageSingleProduct.load(list?.imgSrcUrl)
+            binding.executePendingBindings()
         }
     }
 

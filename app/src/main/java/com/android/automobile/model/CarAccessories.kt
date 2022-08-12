@@ -11,6 +11,6 @@ import javax.inject.Inject
     @ColumnInfo(name = "rating") var rating: String? = null,
     @ColumnInfo(name = "brand") var brandName: String? = null,
     @ColumnInfo(name = "price") var price: String? = null,
-    @ColumnInfo(name = "img_url") var imgUrl: String? = null,
+    @ColumnInfo(name = "img_url") var imgSrcUrl: String? = null,
     @ColumnInfo(name = "product") var productName: String? = null
     )

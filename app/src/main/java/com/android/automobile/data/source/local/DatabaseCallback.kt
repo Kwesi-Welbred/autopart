@@ -45,7 +45,7 @@ class DatabaseCallback(
             val price = jsonObject.getString("price")
             val imgUrl = jsonObject.getString("imgUrl")
             val cars = CarAccessories(
-                imgUrl = imgUrl,
+                imgSrcUrl = imgUrl,
                 brandName = name,
                 price = price,
                 id = id.toInt()

@@ -1,11 +1,13 @@
 package com.android.automobile.viewmodel.auths
 
 import android.text.TextUtils
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android.automobile.data.repository.UserRepository
 import com.android.automobile.model.User
+import com.android.automobile.view.fragments.LoginFragment.Companion.TAG
 import com.android.automobile.view.util.NetworkManager
 import com.android.automobile.view.util.Resource
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -18,8 +20,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val repository: UserRepository, private val networkControl: NetworkManager,
-    private val firebaseAuth: FirebaseAuth
+    private val repository: UserRepository,
+    private val networkControl: NetworkManager,
+    private val firebaseAuth: FirebaseAuth,
+    private  val userRepository: UserRepository
 ) : ViewModel() {
 
     private val userLiveData = MutableLiveData<Resource<User>>()
@@ -44,13 +48,13 @@ class LoginViewModel @Inject constructor(
                                     .addOnCompleteListener { task ->
                                         if (task.isSuccessful) {
                                             firebaseAuth.currentUser?.isEmailVerified?.let { verified ->
+                                                Log.d(TAG, ":::::::::::::signInWithEmail:success")
                                                 if (verified) {
                                                     repository.searchUser.addOnCompleteListener { userTask ->
                                                         if (userTask.isSuccessful) {
                                                             userTask.result?.documents?.forEach { snapshot ->
                                                                 if (snapshot.data!!["email"] == email) {
-                                                                    val name =
-                                                                        snapshot.data?.getValue("fullName")
+                                                                    val name = snapshot.data?.getValue("fullName")
                                                                     userLiveData.postValue(
                                                                         Resource.success(
                                                                             User(
@@ -147,4 +151,6 @@ class LoginViewModel @Inject constructor(
         }
         return sendResetPasswordLiveData
     }
+
+    fun signInWithRoom(email: String, password: String) = userRepository.signInWithRoom(email, password)
 }

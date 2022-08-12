@@ -39,9 +39,9 @@ fun bindMotorRecyclerView(recyclerView: RecyclerView, data: List<MotorAccessorie
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {
-        val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
+       //val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
         Glide.with(imgView.context)
-                .load(imgUri)
+                .load(imgUrl)
                 .apply(
                     RequestOptions()
                         .placeholder(R.drawable.loading_animation)

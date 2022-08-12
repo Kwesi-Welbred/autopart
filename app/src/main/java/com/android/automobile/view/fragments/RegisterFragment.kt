@@ -147,8 +147,11 @@ class RegisterFragment : Fragment(R.layout.register_fragment) {
 
                                     // navigateToLogin
 
-                                    NavHostFragment.findNavController(this)
-                                        .navigate(R.id.action_registerFragment_to_loginFragment)
+
+                                    if (findNavController().currentDestination?.id == R.id.registerFragment) {
+                                        NavHostFragment.findNavController(this)
+                                            .navigate(R.id.action_registerFragment_to_loginFragment)
+                                    }
                                 }
                                 Status.ERROR -> {
                                     binding.signUpBtn.isEnabled = true

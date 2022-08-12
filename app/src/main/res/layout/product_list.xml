@@ -2,7 +2,7 @@
 <layout>
     <data>
         <variable
-            name="imgUrl"
+            name="carAccessories"
             type="com.android.automobile.model.CarAccessories" />
     </data>
 
@@ -27,7 +27,7 @@
             android:id="@+id/productImage_singleProduct"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            imageUrl="@{imgUrl.imgUrl}"
+            app:imageUrl="@{carAccessories.imgSrcUrl}"
             android:contentDescription="@string/product_image"
             android:scaleType="centerCrop" />
 
