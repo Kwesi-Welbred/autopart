@@ -62,7 +62,7 @@ class FireBaseSource @Inject constructor(
     fun saveUser(fullName:String, email: String, password: String) =
         fireStore.collection("users").document(email).set(
             User(
-                firebaseAuth.uid,
+                firebaseAuth.uid?.toInt(),
                fullName = fullName,
                 email = email,
                 password = password

@@ -15,7 +15,8 @@ import kotlinx.coroutines.CoroutineScope
         MotorAccessories::class,
         CoverPage::class,
         Cart::class,
-        Favorites::class],
+        Favorites::class,
+        User::class],
     version = 2,
     exportSchema = true
 )
@@ -23,8 +24,9 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun carDao(): CarDao
     abstract fun motorDao(): MotorDoa
     abstract fun coverDao(): CoverDao
-    abstract fun favDao():FavoritesDao
+    abstract fun favDao(): FavoritesDao
     abstract fun cartDao(): CartDao
+    abstract fun userDao(): UserDao
 
     companion object {
         @Volatile// Singleton prevents multiple instances of database opening at the same time
@@ -35,7 +37,8 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "autoparts"
-                ).addMigrations(ALTER_TABLE_MIGRATION_1_2).addCallback(DatabaseCallback(context, scope))
+                ).addMigrations(ALTER_TABLE_MIGRATION_1_2)
+                    .addCallback(DatabaseCallback(context, scope))
                     .build()
                 INSTANCE = instance
                 // return instance

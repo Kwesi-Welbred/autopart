@@ -1,10 +1,7 @@
 package com.android.automobile.viewmodel.auths
 
 import android.text.TextUtils
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.android.automobile.data.repository.UserRepository
 import com.android.automobile.model.TYPE
 import com.android.automobile.model.User
@@ -49,7 +46,7 @@ class RegisterViewModel @Inject constructor(
                     try {
                          if (it.result?.signInMethods?.size == 0) {
                         repository.signUpUser(fullName, email, password)
-                            .addOnCompleteListener { task ->
+                            ?.addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
                                     firebaseAuth.currentUser?.sendEmailVerification()
                                     userLiveData.postValue(
@@ -91,14 +88,16 @@ class RegisterViewModel @Inject constructor(
     }
 
     fun saveUser(fullName: String, email: String, password: String) {
-        repository.saveUser(fullName,email, password).addOnCompleteListener {
+        repository.saveUser(fullName,email, password)?.addOnCompleteListener {
             if (it.isSuccessful) {
-                _saveUserLiveData.postValue(Resource.success(User(uid = firebaseAuth.uid, fullName = fullName, email,password, type = TYPE.ADMIN)))
+                _saveUserLiveData.postValue(Resource.success(User(uid = firebaseAuth.uid, fullName = fullName, email,password)))
             } else {
                 _saveUserLiveData.postValue(Resource.error(null, it.exception?.message.toString()))
             }
         }
     }
+
+    val loginWithRoom = repository.signInWithRoom?.asLiveData()
 
     fun emailVerification(email: String) = viewModelScope.launch {
         repository.emailVerification

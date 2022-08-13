@@ -3,7 +3,9 @@ package com.android.automobile.di
 import android.app.Application
 import android.content.Context
 import com.android.automobile.data.repository.ProductRepository
+import com.android.automobile.data.repository.UserRepository
 import com.android.automobile.data.source.local.AppDatabase
+import com.android.automobile.data.source.remote.FireBaseSource
 import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
@@ -22,6 +24,8 @@ class AutoMobileApp : Application() {
             roomDatabaseInstance.cartDao()
         )
     }
+
+    val userRepo by lazy { UserRepository(userDao = roomDatabaseInstance.userDao()) }
 
 
     override fun onCreate() {

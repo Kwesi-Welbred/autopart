@@ -2,8 +2,10 @@ package com.android.automobile.di
 
 import android.content.Context
 import com.android.automobile.R
+import com.android.automobile.data.dao.UserDao
 import com.android.automobile.data.repository.UserRepository
 import com.android.automobile.data.source.remote.FireBaseSource
+import com.android.automobile.model.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -44,7 +46,7 @@ class FireBaseModule {
         GoogleSignIn.getClient(context, gso)
 
     @Provides
-    fun provideUserRepository(userApi: FireBaseSource): UserRepository {
-        return UserRepository(userApi)
+    fun provideUserRepository(userApi: FireBaseSource, user: UserDao): UserRepository {
+        return UserRepository(userApi,user)
     }
 }
