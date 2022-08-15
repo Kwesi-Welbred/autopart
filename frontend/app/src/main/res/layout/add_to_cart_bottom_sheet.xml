@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomSheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/menu_bg">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/metropolis_semibold"
+        android:gravity="center"
+        android:text="@string/quantity"
+        android:textColor="@color/mainText"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <LinearLayout
+            android:id="@+id/minusLayout"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/circle_bg"
+            android:elevation="5dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/circle_bg"
+                android:contentDescription="@string/add"
+                android:padding="8dp"
+                android:src="@drawable/ic_baseline_remove_24"
+                app:tint="@color/mainText" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/quantityEtBottom"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="0"
+            android:background="@drawable/edit_text_bg"
+            android:fontFamily="@font/metropolis_regular"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="@string/_1"
+            android:textColor="@color/mainText"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/plusLayout"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/circle_bg"
+            android:elevation="5dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/add"
+                android:padding="8dp"
+                android:src="@drawable/ic_baseline_add_24"
+                app:tint="@color/mainText" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/total_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/mainText"
+        android:textStyle="bold"
+        android:textSize="@dimen/_14ssp"
+        android:layout_margin="@dimen/_5sdp"
+        android:padding="@dimen/_5sdp"
+        app:layout_constraintBottom_toTopOf="@id/addToCart_BottomSheet"
+        app:layout_constraintEnd_toEndOf="@id/addToCart_BottomSheet"
+        app:layout_constraintStart_toStartOf="@id/addToCart_BottomSheet"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout8" />
+
+    <Button
+        android:id="@+id/addToCart_BottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_20sdp"
+        android:background="@drawable/btn_bg"
+        android:text="@string/add_to_cart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout8" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addToCart_BottomSheet" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

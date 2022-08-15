@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr format="color" name="colorOnBackground"/>
+    <attr format="color" name="colorOnError"/>
+    <attr format="color" name="colorOnErrorContainer"/>
+     <attr format="color" name="colorOnSuccess"/>
+    <attr format="color" name="colorOnSuccessContainer"/>
+    <attr format="color" name="colorOnPrimary"/>
+    <attr format="color" name="colorOnPrimaryContainer"/>
+    <attr format="color" name="colorOnText"/>
+    <attr format="color" name="colorOnPrimarySurface"/>
+    <attr format="color" name="colorOnSecondary"/>
+    <attr format="color" name="colorOnSecondaryContainer"/>
+    <attr format="color" name="colorOnSurface"/>
+    <attr format="color" name="colorOnSurfaceInverse"/>
+    <attr format="color" name="colorOnSurfaceVariant"/>
+    <attr format="color" name="colorOnTertiary"/>
+    <attr format="color" name="colorOnTertiaryContainer"/>
+    <attr format="color" name="colorOutline"/>
+    <attr format="color" name="colorPrimaryContainer"/>
+    <attr format="color" name="colorPrimaryInverse"/>
+    <attr format="color" name="colorPrimarySurface"/>
+    <attr format="color" name="colorPrimaryVariant"/>
+</resources>
