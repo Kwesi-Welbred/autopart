@@ -28,7 +28,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun cartDao(): CartDao
     abstract fun userDao(): UserDao
 
-    companion object {
+    /*companion object {
         @Volatile// Singleton prevents multiple instances of database opening at the same time
         var INSTANCE: AppDatabase? = null
         fun getDatabase(context: Context, scope: CoroutineScope): AppDatabase {
@@ -45,6 +45,6 @@ abstract class AppDatabase : RoomDatabase() {
                 instance
             }
         }
-    }
+    }*/
 
 }

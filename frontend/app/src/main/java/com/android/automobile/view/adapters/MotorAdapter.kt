@@ -17,8 +17,8 @@ import com.bumptech.glide.Glide
 class MotorAdapter(private val impl: MotorImpl) :
     ListAdapter<MotorAccessories, MotorAdapter.RecyclerViewHolder>(ListComparator()) {
 
-     val context = AutoMobileApp.roomDatabaseInstance
-    val repository = context.favDao()
+    // val context = AutoMobileApp.roomDatabaseInstance
+  //  val repository = context.favDao()
 
     //bind the recycler list items
     inner class RecyclerViewHolder(val binding: ProductListBinding) :

@@ -6,7 +6,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.android.automobile.data.dao.CarDao
 import com.android.automobile.data.dao.CoverDao
 import com.android.automobile.data.dao.MotorDoa
-import com.android.automobile.data.source.local.AppDatabase.Companion.INSTANCE
+import com.android.automobile.di.DatabaseModule
 import com.android.automobile.model.CarAccessories
 import com.android.automobile.model.CoverPage
 import com.android.automobile.model.MotorAccessories
@@ -23,9 +23,9 @@ class DatabaseCallback(
 ) : RoomDatabase.Callback() {
     override fun onCreate(db: SupportSQLiteDatabase) {
         super.onCreate(db)
-        INSTANCE?.let { database ->
+         DatabaseModule.databaseInstance.let{ database ->
             scope.launch {
-                populateCar(database.carDao())
+                populateCar(database!!.carDao())
                 populateMotor(database.motorDao())
                 populateCover(database.coverDao())
             }

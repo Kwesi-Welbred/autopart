@@ -12,20 +12,19 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.android.automobile.R
 import com.android.automobile.databinding.FragmentFavoriteBinding
-import com.android.automobile.di.AutoMobileApp
 import com.android.automobile.model.Favorites
 import com.android.automobile.view.adapters.FavAdapter
 import com.android.automobile.view.fragments.HomeFragment.Companion.imgUrl
 import com.android.automobile.view.fragments.HomeFragment.Companion.price
-import com.android.automobile.viewmodel.factories.ProductViewModelFactory
 import com.android.automobile.viewmodel.products.ProductViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+
+@AndroidEntryPoint
 class FavoriteFragment : Fragment(), FavAdapter.FavImpl {
     private lateinit var binding: FragmentFavoriteBinding
-    private val productViewmodel: ProductViewModel by viewModels {
-        ProductViewModelFactory((activity?.application as AutoMobileApp).productRepository)
-    }
+    private val productViewmodel: ProductViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +38,7 @@ class FavoriteFragment : Fragment(), FavAdapter.FavImpl {
 
         val recyclerView = binding.favRecView
         recyclerView.adapter = anyAdapter
-        StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL).apply {
+        StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL).apply {
             recyclerView.layoutManager = this
         }
         //recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -55,11 +54,11 @@ class FavoriteFragment : Fragment(), FavAdapter.FavImpl {
     }
 
     override fun onFavDeleteListener(favorites: Favorites) {
-       productViewmodel.deleteSingleFav(favorites)
+        productViewmodel.deleteSingleFav(favorites)
     }
 
     override fun onViewDetailsListener(favorites: Favorites) {
-         val bundle = Bundle()
+        val bundle = Bundle()
         bundle.putString(price, favorites.price)
         bundle.putString(imgUrl, favorites.imgUrl)
         bundle.putString("name", favorites.brandName)

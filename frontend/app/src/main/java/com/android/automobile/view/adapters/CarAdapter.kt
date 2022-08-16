@@ -15,8 +15,8 @@ import com.android.automobile.model.CarAccessories
 
 class CarAdapter(private val impl: CarImpl) :
     ListAdapter<CarAccessories, CarAdapter.RecyclerViewHolder>(ListComparator()) {
-    val context = AutoMobileApp.roomDatabaseInstance
-    val repository = context.favDao()
+   // val context = AutoMobileApp.roomDatabaseInstance
+   // val repository = context.favDao()
 
     //bind the recycler list items
     inner class RecyclerViewHolder(val binding: ProductListBinding) :

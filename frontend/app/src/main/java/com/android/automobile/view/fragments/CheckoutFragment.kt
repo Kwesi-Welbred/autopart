@@ -2,21 +2,20 @@ package com.android.automobile.view.fragments
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.automobile.R
 import com.android.automobile.databinding.FragmentCheckoutBinding
 import com.android.automobile.view.util.bottomOnNavOnBackPress
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CheckoutFragment : Fragment() {
 
-lateinit var binding: FragmentCheckoutBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    lateinit var binding: FragmentCheckoutBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

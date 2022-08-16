@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.automobile.R
 import com.android.automobile.databinding.FragmentHomeBinding
-import com.android.automobile.di.AutoMobileApp
 import com.android.automobile.model.CarAccessories
 import com.android.automobile.model.CoverPage
 import com.android.automobile.model.Favorites
@@ -19,17 +18,16 @@ import com.android.automobile.view.activities.HomeActivity
 import com.android.automobile.view.adapters.CarAdapter
 import com.android.automobile.view.adapters.CoverAdapter
 import com.android.automobile.view.adapters.MotorAdapter
-import com.android.automobile.viewmodel.factories.ProductViewModelFactory
 import com.android.automobile.viewmodel.products.ProductViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
+@AndroidEntryPoint
 class HomeFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl,
     CoverAdapter.CoverImpl {
     private lateinit var binding: FragmentHomeBinding
 
-    private val productViewmodel: ProductViewModel by viewModels {
-        ProductViewModelFactory((activity?.application as AutoMobileApp).productRepository)
-    }
+    private val productViewmodel: ProductViewModel by viewModels()
 
 
     override fun onCreateView(
@@ -52,22 +50,24 @@ class HomeFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl,
     }
 
 
-
-    private fun initRecViews(){
+    private fun initRecViews() {
         val coverRecyclerView = binding.coverRecView
         coverRecyclerView.adapter = CoverAdapter(this)
-        coverRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        coverRecyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         coverRecyclerView.setHasFixedSize(true)
 
         val motorRecyclerView = binding.motorRecycler
         motorRecyclerView.adapter = MotorAdapter(this)
-        motorRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        motorRecyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         motorRecyclerView.setHasFixedSize(true)
 
 
         val recyclerView = binding.carProductRecycler
         recyclerView.adapter = CarAdapter(this)
-        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.setHasFixedSize(true)
 
     }

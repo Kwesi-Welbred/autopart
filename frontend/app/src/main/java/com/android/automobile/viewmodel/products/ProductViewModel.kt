@@ -4,10 +4,13 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.android.automobile.data.repository.ProductRepository
 import com.android.automobile.model.*
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
-class ProductViewModel(
+@HiltViewModel
+class ProductViewModel @Inject constructor(
     private val repository: ProductRepository
 ) : ViewModel() {
 

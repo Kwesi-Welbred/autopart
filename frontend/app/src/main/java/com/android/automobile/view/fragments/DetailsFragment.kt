@@ -18,7 +18,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import com.android.automobile.R
 import com.android.automobile.databinding.FragmentDetailsBinding
-import com.android.automobile.di.AutoMobileApp
 import com.android.automobile.model.CarAccessories
 import com.android.automobile.model.Cart
 import com.android.automobile.model.Favorites
@@ -26,16 +25,15 @@ import com.android.automobile.model.MotorAccessories
 import com.android.automobile.view.activities.HomeActivity
 import com.android.automobile.view.adapters.CarAdapter
 import com.android.automobile.view.adapters.MotorAdapter
-import com.android.automobile.viewmodel.factories.ProductViewModelFactory
 import com.android.automobile.viewmodel.products.ProductViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
+@AndroidEntryPoint
 class DetailsFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl {
-    private val productViewmodel: ProductViewModel by viewModels {
-        ProductViewModelFactory((activity?.application as AutoMobileApp).productRepository)
-    }
+    private val productViewmodel: ProductViewModel by viewModels()
 
     private lateinit var binding: FragmentDetailsBinding
 

@@ -13,14 +13,14 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.automobile.R
 import com.android.automobile.databinding.FragmentCartBinding
-import com.android.automobile.di.AutoMobileApp
 import com.android.automobile.model.Cart
 import com.android.automobile.view.adapters.CartAdapter
 import com.android.automobile.view.util.bottomOnNavOnBackPress
 import com.android.automobile.view.util.hideBottomNavOnNav
-import com.android.automobile.viewmodel.factories.ProductViewModelFactory
 import com.android.automobile.viewmodel.products.ProductViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CartFragment : Fragment(), CartAdapter.CartImpl {
     lateinit var binding: FragmentCartBinding
 
@@ -29,9 +29,7 @@ class CartFragment : Fragment(), CartAdapter.CartImpl {
     private var quantity: Int = 0
     private var amt: Int = 0
 
-    private val productViewmodel: ProductViewModel by viewModels {
-        ProductViewModelFactory((activity?.application as AutoMobileApp).productRepository)
-    }
+    private val productViewmodel: ProductViewModel by viewModels()
 
     companion object {
         fun newInstance() = CartFragment()
