@@ -79,6 +79,43 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512708520760:android:d85a1814bbdefe634e6fcd",
+        "android_client_info": {
+          "package_name": "com.welbtech.autopart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512708520760-mvf4llunoh0r0o7r822plqkv01ve7q8l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.welbtech.autopart",
+            "certificate_hash": "062cc5e6439e1fff751e6806d541b3b35781b4fc"
+          }
+        },
+        {
+          "client_id": "512708520760-lkctl28fabi3l1q659ujh0l4g2ifc9qr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFliPEhVontq55WvgO3ymXrr7I3Qc-3MY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512708520760-lkctl28fabi3l1q659ujh0l4g2ifc9qr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

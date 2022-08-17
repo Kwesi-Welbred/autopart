@@ -3,7 +3,7 @@
     <data>
         <variable
             name="productVm"
-            type="com.android.automobile.viewmodel.products.ProductViewModel" />
+            type="com.welbtech.autopart.viewmodel.products.ProductViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
