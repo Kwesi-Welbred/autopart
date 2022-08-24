@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.automobile.R
-import com.android.automobile.model.Accessories
+import com.welbtech.autopart.model.Accessories
 
 class MultiRecyclerAdapter(private val context: Context, list: ArrayList<Accessories>) :
 	RecyclerView.Adapter<RecyclerView.ViewHolder>() {

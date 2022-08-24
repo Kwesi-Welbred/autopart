@@ -141,6 +141,7 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
     }
 
     private fun signIn() {
+        //googleSignInClient.revokeAccess()
         val signInIntent: Intent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }

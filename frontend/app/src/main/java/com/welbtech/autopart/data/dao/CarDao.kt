@@ -1,7 +1,7 @@
 package com.welbtech.autopart.data.dao
 
 import androidx.room.*
-import com.android.automobile.model.CarAccessories
+import com.welbtech.autopart.model.CarAccessories
 import kotlinx.coroutines.flow.Flow
 
 

@@ -16,16 +16,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
-import com.android.automobile.model.CarAccessories
-import com.android.automobile.model.Cart
-import com.android.automobile.model.Favorites
-import com.android.automobile.model.MotorAccessories
-import com.welbtech.autopart.view.activities.HomeActivity
-import com.welbtech.autopart.view.adapters.CarAdapter
-import com.welbtech.autopart.view.adapters.MotorAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.welbtech.autopart.R
 import com.welbtech.autopart.databinding.FragmentDetailsBinding
+import com.welbtech.autopart.model.*
+import com.welbtech.autopart.view.activities.HomeActivity
+import com.welbtech.autopart.view.adapters.CarAdapter
+import com.welbtech.autopart.view.adapters.MotorAdapter
 import com.welbtech.autopart.viewmodel.products.ProductViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -39,7 +36,7 @@ class DetailsFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentDetailsBinding.inflate(layoutInflater)
@@ -74,6 +71,8 @@ class DetailsFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl {
                 motorAdapter.submitList(it)
             }
         })
+
+
 
         with(binding) {
             // productRatingSingleProduct.numStars = arguments?.getString("rating")?.toIntOrNull()!!
@@ -135,6 +134,9 @@ class DetailsFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl {
             }
         }
 
+        receiveCategoryData()
+        displayCatItems()
+
         return binding.root
     }
 
@@ -150,6 +152,22 @@ class DetailsFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl {
             this, callback
         )
 
+    }
+
+
+    private fun receiveCategoryData() {
+        with(binding) {
+            arguments?.let {
+                val details = it.getParcelableArrayList<CatItems>("engine")
+                details?.forEach { catItems ->
+                    productNameProductDetailsPage.text = catItems.name
+                    productPriceProductDetailsPage.text = catItems?.price
+                    productImageProductDetailsPage.load(catItems?.image)
+                }
+                // productNameProductDetailsPage.text = details?.getString("name")
+
+            }
+        }
     }
 
 
@@ -172,7 +190,6 @@ class DetailsFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl {
         Timber.d("INSERTING.......", "$list")
         productViewmodel.insertIntoDatabase(list)
     }
-
 
     override fun onViewDetailsListener(cart: MotorAccessories) {
         with(binding) {
@@ -201,5 +218,14 @@ class DetailsFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl {
 
     override fun onRatingListener(rating: Float) {
         TODO("Not yet implemented")
+    }
+
+    private fun displayCatItems() = arguments?.let {
+        val details = it.getParcelable<CatItems>("cat")
+         with(binding) {
+                productNameProductDetailsPage.text = details?.name
+                productPriceProductDetailsPage.text = details?.price
+                productImageProductDetailsPage.load(details?.image)
+            }
     }
 }

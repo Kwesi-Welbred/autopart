@@ -1,4 +1,4 @@
-package com.android.automobile.model
+package com.welbtech.autopart.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -14,6 +14,7 @@ data class User(
     @ColumnInfo(name = "lastName") val lastName: String? = null,
     @ColumnInfo(name = "email") val email: String? = null,
     @ColumnInfo(name = "password") val password: String? = null,
+     @ColumnInfo(name = "imgUrl") val imgUrl: String? = null,
 )
 
 enum class TYPE {

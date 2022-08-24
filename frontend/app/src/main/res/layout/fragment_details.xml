@@ -24,7 +24,7 @@
             <ImageView
                 android:id="@+id/productImage_ProductDetailsPage"
                 android:layout_width="match_parent"
-                android:layout_height="450dp"
+                android:layout_height="400dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -309,9 +309,9 @@
                     android:id="@+id/RecomRecView_ProductDetailsPage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     tools:listitem="@layout/product_list"
-                    android:layout_marginBottom="20dp">
+                    android:layout_marginBottom="40dp">
 
                 </androidx.recyclerview.widget.RecyclerView>
             </LinearLayout>

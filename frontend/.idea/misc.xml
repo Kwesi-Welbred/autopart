@@ -4,6 +4,34 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/drawable/btn_bg.xml" value="0.114" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/drawable/btn_bg2.xml" value="0.2115" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/drawable/circle_bg.xml" value="0.2115" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/drawable/ic_baseline_category_24.xml" value="0.2415" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/drawable/ic_fav.xml" value="0.2415" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/drawable/outline_category_white_24dp.xml" value="0.143" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/activity_home.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/activity_main.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/activity_maps.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/available_shop.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/available_shop_list.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/card_details.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/cart_list.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/category_list.xml" value="0.36770833333333336" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/category_single.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/checkout_list.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/cover_page_list.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/current_place_list.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/custom_dialog.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/favorites_list.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/fragment_cart.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/fragment_cat_single_item.xml" value="0.240625" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/fragment_category_details.xml" value="0.264" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/fragment_details.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/fragment_home.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/fragment_shop.xml" value="0.23508771929824562" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/product_list.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/layout/register_fragment.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/PeacemakerNanaKwesiO/Desktop/PEACEMAKER/work samples/autopart/frontend/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2552083333333333" />
       </map>
     </option>
   </component>

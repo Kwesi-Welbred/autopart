@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.android.automobile.model.CoverPage
+import com.welbtech.autopart.model.CoverPage
 import com.bumptech.glide.Glide
 import com.welbtech.autopart.databinding.CoverPageListBinding
 

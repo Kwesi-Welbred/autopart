@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.android.automobile.model.Favorites
+import com.welbtech.autopart.model.Favorites
 import com.welbtech.autopart.view.adapters.FavAdapter
 import com.welbtech.autopart.view.fragments.HomeFragment.Companion.imgUrl
 import com.welbtech.autopart.view.fragments.HomeFragment.Companion.price

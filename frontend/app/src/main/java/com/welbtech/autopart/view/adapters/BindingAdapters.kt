@@ -4,9 +4,9 @@ import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.android.automobile.model.CarAccessories
-import com.android.automobile.model.CoverPage
-import com.android.automobile.model.MotorAccessories
+import com.welbtech.autopart.model.CarAccessories
+import com.welbtech.autopart.model.CoverPage
+import com.welbtech.autopart.model.MotorAccessories
 import com.android.automobile.view.util.Status
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions

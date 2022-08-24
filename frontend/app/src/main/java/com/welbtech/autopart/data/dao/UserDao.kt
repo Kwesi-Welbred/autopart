@@ -2,7 +2,7 @@ package com.android.automobile.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.android.automobile.model.User
+import com.welbtech.autopart.model.User
 import kotlinx.coroutines.flow.Flow
 
 

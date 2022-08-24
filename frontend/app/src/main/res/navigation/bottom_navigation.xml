@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_homeFragment_to_mapsFragment"
             app:destination="@id/mapsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment2"
+            app:destination="@id/profileFragment2" />
     </fragment>
     <fragment
         android:id="@+id/cartFragment"
@@ -45,9 +48,16 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.welbtech.autopart.view.fragments.ProfileFragment"
-        android:label="profile"
-        tools:layout="@layout/fragment_profile" />
+        android:name="com.welbtech.autopart.view.fragments.ProductCategoryFragment"
+        android:label="Category"
+        tools:layout="@layout/fragment_shop" >
+        <action
+            android:id="@+id/action_profileFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_categoryDetailsFragment"
+            app:destination="@id/categoryDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.welbtech.autopart.view.fragments.DetailsFragment"
@@ -103,4 +113,18 @@
         android:id="@+id/orderDetailsFragment"
         android:name="com.welbtech.autopart.view.fragments.OrderDetailsFragment"
         android:label="OrderDetailsFragment" />
+    <fragment
+        android:id="@+id/profileFragment2"
+        android:name="com.welbtech.autopart.view.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/categoryDetailsFragment"
+        android:name="com.welbtech.autopart.view.fragments.CategoryDetailsFragment"
+        android:label="fragment_category_details"
+        tools:layout="@layout/fragment_category_details" >
+        <action
+            android:id="@+id/action_categoryDetailsFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
 </navigation>

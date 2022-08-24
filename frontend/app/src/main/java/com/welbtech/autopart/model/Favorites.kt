@@ -1,4 +1,4 @@
-package com.android.automobile.model
+package com.welbtech.autopart.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -1,7 +1,7 @@
 package com.android.automobile.data.dao
 
 import androidx.room.*
-import com.android.automobile.model.Cart
+import com.welbtech.autopart.model.Cart
 import kotlinx.coroutines.flow.Flow
 
 @Dao

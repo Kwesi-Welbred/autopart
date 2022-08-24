@@ -3,8 +3,8 @@ package com.android.automobile.data.source.local
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.android.automobile.data.dao.*
-import com.android.automobile.model.*
 import com.welbtech.autopart.data.dao.CarDao
+import com.welbtech.autopart.model.*
 
 
 @Database(

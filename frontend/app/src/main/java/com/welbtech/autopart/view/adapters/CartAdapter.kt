@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.android.automobile.model.Cart
+import com.welbtech.autopart.model.Cart
 import com.bumptech.glide.Glide
 import com.welbtech.autopart.databinding.CartListBinding
 

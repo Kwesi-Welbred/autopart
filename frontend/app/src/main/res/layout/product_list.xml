@@ -3,7 +3,7 @@
     <data>
         <variable
             name="carAccessories"
-            type="com.android.automobile.model.CarAccessories" />
+            type="com.welbtech.autopart.model.CarAccessories" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

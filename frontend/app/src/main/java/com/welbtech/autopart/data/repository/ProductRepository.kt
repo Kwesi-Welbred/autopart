@@ -1,8 +1,8 @@
 package com.android.automobile.data.repository
 
 import com.android.automobile.data.dao.*
-import com.android.automobile.model.*
 import com.welbtech.autopart.data.dao.CarDao
+import com.welbtech.autopart.model.*
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

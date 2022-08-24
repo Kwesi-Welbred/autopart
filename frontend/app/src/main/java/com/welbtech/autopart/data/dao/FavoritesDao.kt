@@ -1,7 +1,7 @@
 package com.android.automobile.data.dao
 
 import androidx.room.*
-import com.android.automobile.model.Favorites
+import com.welbtech.autopart.model.Favorites
 import kotlinx.coroutines.flow.Flow
 
 

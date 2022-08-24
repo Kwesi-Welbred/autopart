@@ -4,7 +4,7 @@ import android.text.TextUtils
 import androidx.lifecycle.*
 import com.android.automobile.data.repository.GetUserData
 import com.android.automobile.data.repository.UserAuthentication
-import com.android.automobile.model.User
+import com.welbtech.autopart.model.User
 import com.android.automobile.view.util.NetworkManager
 import com.android.automobile.view.util.Resource
 import com.google.android.gms.tasks.RuntimeExecutionException

@@ -2,8 +2,8 @@ package com.android.automobile.data.repository
 
 import androidx.lifecycle.LiveData
 import com.android.automobile.data.dao.UserDao
-import com.android.automobile.data.source.remote.FireBaseSource
-import com.android.automobile.model.User
+import com.welbtech.autopart.data.source.remote.FireBaseSource
+import com.welbtech.autopart.model.User
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

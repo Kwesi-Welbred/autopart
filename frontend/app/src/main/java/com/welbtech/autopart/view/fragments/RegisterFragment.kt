@@ -10,11 +10,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import com.android.automobile.model.User
+import com.welbtech.autopart.model.User
 import com.android.automobile.view.util.*
 import com.android.automobile.view.util.UtilityMethods.isNetworkAvailable
 import com.android.automobile.viewmodel.auths.LoginViewModel
 import com.android.automobile.viewmodel.auths.RegisterViewModel
+import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.api.ApiException
@@ -76,10 +77,22 @@ class RegisterFragment : Fragment(R.layout.register_fragment) {
                                 context?.startHomeActivity()
                                 Timber.d("display ${auth.currentUser?.displayName} ")
                             }
+                            //save information to cloud
                             viewModel.saveUser(
                                 auth.currentUser?.displayName!!,
                                 auth.currentUser?.email!!, ""
                             )
+
+                            //save information into local machine
+                            viewModel.insertIntoUserTable(
+                                        User(
+                                            uid = auth.currentUser?.uid,
+                                            fullName = auth.currentUser?.displayName,
+                                            email = auth.currentUser?.email,
+                                            password = "",
+                                            imgUrl = auth.currentUser?.photoUrl.toString()//remember to use Uri.parse(this str)
+                                        )
+                                    )
                         }
                         Status.ERROR -> {
                             requireView().showSnackBar(it.message!!)
@@ -98,6 +111,8 @@ class RegisterFragment : Fragment(R.layout.register_fragment) {
 
     private fun signInWithGoogle() {
         if (isNetworkAvailable(requireContext())) {
+            googleSignInClient.revokeAccess()
+            googleSignInClient.signOut()
             val signInIntent: Intent = googleSignInClient.signInIntent
             startActivityForResult(signInIntent, Constants.RC_SIGN_IN)
         } else {

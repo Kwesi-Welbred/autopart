@@ -7,9 +7,9 @@ import com.welbtech.autopart.data.dao.CarDao
 import com.android.automobile.data.dao.CoverDao
 import com.android.automobile.data.dao.MotorDoa
 import com.welbtech.autopart.di.DatabaseModule
-import com.android.automobile.model.CarAccessories
-import com.android.automobile.model.CoverPage
-import com.android.automobile.model.MotorAccessories
+import com.welbtech.autopart.model.CarAccessories
+import com.welbtech.autopart.model.CoverPage
+import com.welbtech.autopart.model.MotorAccessories
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.json.JSONArray

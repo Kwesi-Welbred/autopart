@@ -1,7 +1,7 @@
-package com.android.automobile.data.source.remote
+package com.welbtech.autopart.data.source.remote
 
 import androidx.lifecycle.MutableLiveData
-import com.android.automobile.model.User
+import com.welbtech.autopart.model.User
 import com.android.automobile.view.util.Resource
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.auth.FirebaseAuth

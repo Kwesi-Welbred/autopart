@@ -1,47 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/background"
-    tools:context=".view.fragments.ShopFragment">
+<layout>
 
+    <data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+        <variable
+            name="productVm"
+            type="com.welbtech.autopart.viewmodel.products.ProductViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/MainLayout_shopFrag"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        tools:context=".view.fragments.ProductCategoryFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/coverRecView_shopFrag"
+            coverProperties="@{productVm.getAllFromCover}"
             android:layout_width="match_parent"
-            android:layout_height="480dp"
+            android:layout_height="400dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-        </androidx.recyclerview.widget.RecyclerView>
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/product_list"/>
 
         <LinearLayout
-            android:layout_marginTop="10dp"
             android:id="@+id/linearLayout12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/coverRecView_shopFrag">
 
 
             <TextView
+                android:id="@+id/categories_"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:fontFamily="@font/metropolis_semibold"
                 android:text="@string/categories"
                 android:textColor="@color/mainText"
-                android:textSize="25sp" />
+                android:textSize="@dimen/_20ssp" />
 
             <androidx.legacy.widget.Space
                 android:layout_width="0dp"
@@ -54,26 +59,28 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/metropolis_regular"
                 android:gravity="center"
-                android:text="View all"
+                android:text="@string/view_all"
                 android:textColor="@color/mainText"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:visibility="invisible" />
 
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
             android:id="@+id/categoriesRecView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:clipToPadding="false"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout12"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout12" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:listitem="@layout/category_single" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-</ScrollView>
+</layout>

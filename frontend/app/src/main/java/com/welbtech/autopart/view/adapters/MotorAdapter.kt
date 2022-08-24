@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.android.automobile.model.MotorAccessories
+import com.welbtech.autopart.model.MotorAccessories
 import com.bumptech.glide.Glide
 import com.welbtech.autopart.R
 import com.welbtech.autopart.databinding.ProductListBinding

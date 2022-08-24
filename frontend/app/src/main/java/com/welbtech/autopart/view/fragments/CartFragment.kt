@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.automobile.model.Cart
+import com.welbtech.autopart.model.Cart
 import com.welbtech.autopart.view.adapters.CartAdapter
 import com.welbtech.autopart.view.util.bottomOnNavOnBackPress
 import com.welbtech.autopart.view.util.hideBottomNavOnNav

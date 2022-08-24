@@ -2,7 +2,7 @@ package com.welbtech.autopart.di
 
 import android.content.Context
 import com.android.automobile.data.repository.UserAuthentication
-import com.android.automobile.data.source.remote.FireBaseSource
+import com.welbtech.autopart.data.source.remote.FireBaseSource
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth

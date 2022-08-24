@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.android.automobile.data.repository.GetUserData
 import com.android.automobile.data.repository.UserAuthentication
-import com.android.automobile.model.User
+import com.welbtech.autopart.model.User
 import com.welbtech.autopart.view.fragments.LoginFragment.Companion.TAG
 import com.android.automobile.view.util.NetworkManager
 import com.android.automobile.view.util.Resource

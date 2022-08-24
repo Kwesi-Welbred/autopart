@@ -3,7 +3,7 @@ package com.welbtech.autopart.viewmodel.products
 import android.util.Log
 import androidx.lifecycle.*
 import com.android.automobile.data.repository.ProductRepository
-import com.android.automobile.model.*
+import com.welbtech.autopart.model.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

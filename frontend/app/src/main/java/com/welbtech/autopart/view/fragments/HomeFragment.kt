@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.automobile.model.CarAccessories
-import com.android.automobile.model.CoverPage
-import com.android.automobile.model.Favorites
-import com.android.automobile.model.MotorAccessories
+import com.welbtech.autopart.model.CarAccessories
+import com.welbtech.autopart.model.CoverPage
+import com.welbtech.autopart.model.Favorites
+import com.welbtech.autopart.model.MotorAccessories
 import com.welbtech.autopart.view.activities.HomeActivity
 import com.welbtech.autopart.view.adapters.CarAdapter
 import com.welbtech.autopart.view.adapters.CoverAdapter
@@ -46,6 +46,10 @@ class HomeFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl,
             bottomNavVisibilityGone()
         }
 
+        binding.profileIcon.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_profileFragment2)
+        }
+
         return binding.root
     }
 
@@ -53,8 +57,7 @@ class HomeFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl,
     private fun initRecViews() {
         val coverRecyclerView = binding.coverRecView
         coverRecyclerView.adapter = CoverAdapter(this)
-        coverRecyclerView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        coverRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         coverRecyclerView.setHasFixedSize(true)
 
         val motorRecyclerView = binding.motorRecycler
