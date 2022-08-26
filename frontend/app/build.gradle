@@ -15,7 +15,7 @@ android {
         applicationId "com.welbtech.autopart"
         minSdk 29
         targetSdk 32
-        versionCode 2
+        versionCode 4
         versionName "1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

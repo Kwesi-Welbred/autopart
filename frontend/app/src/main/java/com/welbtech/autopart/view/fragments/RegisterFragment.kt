@@ -111,7 +111,6 @@ class RegisterFragment : Fragment(R.layout.register_fragment) {
 
     private fun signInWithGoogle() {
         if (isNetworkAvailable(requireContext())) {
-            googleSignInClient.revokeAccess()
             googleSignInClient.signOut()
             val signInIntent: Intent = googleSignInClient.signInIntent
             startActivityForResult(signInIntent, Constants.RC_SIGN_IN)

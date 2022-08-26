@@ -18,9 +18,11 @@ import com.welbtech.autopart.view.adapters.CoverAdapter
 import com.welbtech.autopart.view.adapters.MotorAdapter
 import com.welbtech.autopart.R
 import com.welbtech.autopart.databinding.FragmentHomeBinding
+import com.welbtech.autopart.view.fragments.ProductCategoryFragment.Companion.KEY
 import com.welbtech.autopart.viewmodel.products.ProductViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
+import java.security.Key
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl,
@@ -77,6 +79,7 @@ class HomeFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl,
 
     override fun onViewDetailListener(car: CarAccessories) {
         val bundle = Bundle()
+        bundle.putString(KEY,"category")
         bundle.putString(price, car.price)
         bundle.putString(imgUrl, car.imgSrcUrl)
         bundle.putString("name", car.brandName)
@@ -104,6 +107,7 @@ class HomeFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl,
 
     override fun onViewDetailsListener(cart: MotorAccessories) {
         val bundle = Bundle()
+        bundle.putString(KEY,"category")
         bundle.putString(price, cart.price)
         bundle.putString(imgUrl, cart.imgUrl)
         bundle.putString("name", cart.brandName)
@@ -130,6 +134,7 @@ class HomeFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl,
 
     override fun onViewDetails(cover: CoverPage) {
         val bundle = Bundle()
+        bundle.putString(KEY,"category")
         bundle.putString(price, cover.price)
         bundle.putString(imgUrl, cover.imgUrl)
         bundle.putString("name", cover.brandName)

@@ -162,6 +162,7 @@ class CategoryDetailsFragment : Fragment(), CategoryViewAdapter.CatImpl {
 
     override fun onItemViewListener(cat: CatItems) {
         val bundle = Bundle().apply {
+            putString(KEY,"catItems")
             putParcelable("cat",cat)
         }
         findNavController().navigate(R.id.action_categoryDetailsFragment_to_detailsFragment, bundle)
