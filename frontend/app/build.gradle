@@ -9,13 +9,13 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 32//what I am using to build the project
 
     defaultConfig {
         applicationId "com.welbtech.autopart"
-        minSdk 29
-        targetSdk 32
-        versionCode 4
+        minSdk 27//the minimum android version that can run my app
+        targetSdk 32//android version building for
+        versionCode 4// determine internal version of the app; not visible to the user
         versionName "1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
