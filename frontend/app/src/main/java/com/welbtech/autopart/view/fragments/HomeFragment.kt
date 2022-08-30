@@ -8,17 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.welbtech.autopart.model.CarAccessories
-import com.welbtech.autopart.model.CoverPage
-import com.welbtech.autopart.model.Favorites
-import com.welbtech.autopart.model.MotorAccessories
 import com.welbtech.autopart.view.activities.HomeActivity
 import com.welbtech.autopart.view.adapters.CarAdapter
 import com.welbtech.autopart.view.adapters.CoverAdapter
 import com.welbtech.autopart.view.adapters.MotorAdapter
 import com.welbtech.autopart.R
 import com.welbtech.autopart.databinding.FragmentHomeBinding
+import com.welbtech.autopart.model.*
 import com.welbtech.autopart.view.fragments.ProductCategoryFragment.Companion.KEY
+import com.welbtech.autopart.view.util.showSnackBar
 import com.welbtech.autopart.viewmodel.products.ProductViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
@@ -98,12 +96,21 @@ class HomeFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl,
         )
         Timber.d("INSERTING.......", "$list")
         productViewmodel.insertIntoDatabase(list)
+        view?.showSnackBar("Item successfully added to favorite")
     }
 
-    override fun onRatingListener(rating: Float) {
-        TODO("Not yet implemented")
+    override fun onAddToCartListener(cart: CarAccessories) {
+        val list = mutableListOf(
+                        Cart(
+                            brandName = cart.brandName,
+                            imgUrl = cart.imgSrcUrl,
+                            price = cart.price,
+                             quantity = 1
+                        )
+                    )
+                    productViewmodel.insertIntoCart(list)
+          view?.showSnackBar("Item added successfully to cart")
     }
-
 
     override fun onViewDetailsListener(cart: MotorAccessories) {
         val bundle = Bundle()
@@ -126,10 +133,21 @@ class HomeFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl,
             )
         )
         productViewmodel.insertIntoDatabase(list)
+        view?.showSnackBar("Item successfully added to favorite")
     }
 
-    override fun onAddRatingListener(rating: Float) {
-        TODO("Not yet implemented")
+
+    override fun onAddToCartListener(cart: MotorAccessories) {
+         val list = mutableListOf(
+                        Cart(
+                            brandName = cart.brandName,
+                            imgUrl = cart.imgUrl,
+                            price = cart.price,
+                             quantity = 1
+                        )
+                    )
+                    productViewmodel.insertIntoCart(list)
+         view?.showSnackBar("Item added successfully to cart")
     }
 
     override fun onViewDetails(cover: CoverPage) {
@@ -148,6 +166,16 @@ class HomeFragment : Fragment(), CarAdapter.CarImpl, MotorAdapter.MotorImpl,
         val newBinding = (activity as HomeActivity).binding
         newBinding.coordinator.visibility = View.GONE
     }
+
+     override fun onAddRatingListener(rating: Float) {
+        TODO("Not yet implemented")
+    }
+
+     override fun onRatingListener(rating: Float) {
+        TODO("Not yet implemented")
+    }
+
+
 
     companion object {
         const val price = "price"

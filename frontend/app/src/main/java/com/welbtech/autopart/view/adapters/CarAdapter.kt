@@ -3,6 +3,7 @@ package com.welbtech.autopart.view.adapters
 import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -11,12 +12,11 @@ import coil.load
 import com.welbtech.autopart.model.CarAccessories
 import com.welbtech.autopart.R
 import com.welbtech.autopart.databinding.ProductListBinding
+import com.welbtech.autopart.model.Cart
+import com.welbtech.autopart.view.util.showSnackBar
 
 class CarAdapter(private val impl: CarImpl) :
     ListAdapter<CarAccessories, CarAdapter.RecyclerViewHolder>(ListComparator()) {
-   // val context = AutoMobileApp.roomDatabaseInstance
-   // val repository = context.favDao()
-
     //bind the recycler list items
     inner class RecyclerViewHolder(val binding: ProductListBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -25,7 +25,7 @@ class CarAdapter(private val impl: CarImpl) :
             binding.productBrandName.text = list?.brandName
 //            binding.productRating.rating = list?.rating!!.toFloat()
             binding.productPrice.text = "Ghc " + list?.price
-            binding.productName.text = list?.productName
+            binding.productName.text = "productName"
             //binding.carAccessories?.imgSrcUrl = list?.imgSrcUrl
             binding.productImageSingleProduct.load(list?.imgSrcUrl)
             binding.executePendingBindings()
@@ -65,6 +65,10 @@ class CarAdapter(private val impl: CarImpl) :
             impl.onViewDetailListener(getItemPosition)
         }
 
+        holder.binding.addToCart.setOnClickListener {
+            impl.onAddToCartListener(getItemPosition)
+        }
+
 
     }
 
@@ -81,6 +85,7 @@ class CarAdapter(private val impl: CarImpl) :
     interface CarImpl {
         fun onViewDetailListener(car: CarAccessories)
         fun onAddToFavoriteListener(favorites: CarAccessories)
+        fun onAddToCartListener(cart: CarAccessories)
         fun onRatingListener(rating: Float)
 
     }

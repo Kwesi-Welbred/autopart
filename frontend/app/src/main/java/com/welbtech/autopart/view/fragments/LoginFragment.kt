@@ -14,7 +14,7 @@ import com.welbtech.autopart.view.activities.HomeActivity
 import com.android.automobile.view.util.Constants.RC_SIGN_IN
 import com.android.automobile.view.util.Status
 import com.android.automobile.view.util.UtilityMethods
-import com.android.automobile.view.util.showSnackBar
+import com.welbtech.autopart.view.util.showSnackBar
 import com.android.automobile.viewmodel.auths.LoginViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient

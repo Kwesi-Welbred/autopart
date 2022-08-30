@@ -1,4 +1,4 @@
-package com.android.automobile.view.util
+package com.welbtech.autopart.view.util
 
 import android.app.Activity
 import android.content.Context

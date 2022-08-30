@@ -16,9 +16,6 @@ import com.welbtech.autopart.databinding.ProductListBinding
 class MotorAdapter(private val impl: MotorImpl) :
     ListAdapter<MotorAccessories, MotorAdapter.RecyclerViewHolder>(ListComparator()) {
 
-    // val context = AutoMobileApp.roomDatabaseInstance
-    //  val repository = context.favDao()
-
     //bind the recycler list items
     inner class RecyclerViewHolder(val binding: ProductListBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -48,17 +45,6 @@ class MotorAdapter(private val impl: MotorImpl) :
         holder.binding.productAddToFavSingleProduct.apply {
             setOnClickListener {
                 impl.onAddToFavoriteListener(getItemPosition)
-                /*val list = mutableListOf(
-              Favorites(
-                  imgUrl = getItemPosition.imgUrl,
-                  price = getItemPosition.price,
-                  brandName = getItemPosition.brandName
-              )
-          )
-          runBlocking {
-              repository.insertToRoom(list)
-          }*/
-
                 Log.d("FAVORITES", "$getItemPosition")
                 this.setImageResource(R.drawable.ic_favorite)
             }
@@ -66,10 +52,12 @@ class MotorAdapter(private val impl: MotorImpl) :
         holder.binding.productRating.setOnClickListener {
             Log.d("ITEM CLICKED", "::::::::::::::::::YOU CLICK")
         }
-
         holder.itemView.setOnClickListener {
             impl.onViewDetailsListener(getItemPosition)
 
+        }
+         holder.binding.addToCart.setOnClickListener {
+            impl.onAddToCartListener(getItemPosition)
         }
     }
 
@@ -93,6 +81,7 @@ class MotorAdapter(private val impl: MotorImpl) :
         fun onViewDetailsListener(cart: MotorAccessories)
         fun onAddToFavoriteListener(favorites: MotorAccessories)
         fun onAddRatingListener(rating: Float)
+        fun onAddToCartListener(cart: MotorAccessories)
     }
 
 }

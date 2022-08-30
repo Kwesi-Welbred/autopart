@@ -5,8 +5,8 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.android.automobile.data.repository.UserAuthentication
-import com.android.automobile.view.util.startAuthActivity
-import com.android.automobile.view.util.startHomeActivity
+import com.welbtech.autopart.view.util.startAuthActivity
+import com.welbtech.autopart.view.util.startHomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import javax.inject.Inject

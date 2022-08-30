@@ -15,13 +15,14 @@ import com.android.automobile.view.util.*
 import com.android.automobile.view.util.UtilityMethods.isNetworkAvailable
 import com.android.automobile.viewmodel.auths.LoginViewModel
 import com.android.automobile.viewmodel.auths.RegisterViewModel
-import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.welbtech.autopart.R
 import com.welbtech.autopart.databinding.RegisterFragmentBinding
+import com.welbtech.autopart.view.util.showSnackBar
+import com.welbtech.autopart.view.util.startHomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import javax.inject.Inject

@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.android.automobile.view.util.goToUrl
+import com.welbtech.autopart.view.util.goToUrl
 import com.welbtech.autopart.databinding.FragmentRecoveryBinding
 
 
