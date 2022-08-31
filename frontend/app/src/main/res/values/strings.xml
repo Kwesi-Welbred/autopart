@@ -141,4 +141,11 @@
     <string name="order_items">Order Items</string>
     <string name="last_name">Last name</string>
     <string name="you_may_also_like_this">You may also Like this</string>
+    <string name="wheels_tyres">Wheels and Tyres</string>
+    <string name="fan_belts">Fan Belts</string>
+    <string name="engine_block">Engine Block</string>
+    <string name="light_systems">Light Systems</string>
+    <string name="brakes">Brakes</string>
+    <string name="tools">Tools</string>
+    <string name="batteries">Batteries</string>
 </resources>

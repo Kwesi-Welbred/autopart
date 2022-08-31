@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,14 +25,14 @@ class CategoryDetailsFragment : Fragment(), CategoryViewAdapter.CatImpl {
     private lateinit var binding: FragmentCategoryDetailsBinding
 
     private val categoryAdapter: CategoryViewAdapter by lazy {
-        CategoryViewAdapter(this) { _ ->
+        CategoryViewAdapter(this) {
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
 
         binding = FragmentCategoryDetailsBinding.inflate(layoutInflater)
@@ -121,38 +120,38 @@ class CategoryDetailsFragment : Fragment(), CategoryViewAdapter.CatImpl {
     private fun initRecView() {
 
         when (arguments?.getString(KEY)) {
-            "Engine Block" -> {
-                binding.catName.text = "Engine Block"
+            getString(R.string.engine_block) -> {
+                binding.catName.text = getString(R.string.engine_block)
                 engine()
             }
 
-            "Light Systems" -> {
-                binding.catName.text = "Light Systems"
+            getString(R.string.light_systems) -> {
+                binding.catName.text = getString(R.string.light_systems)
                 light()
             }
 
-            "Brakes" -> {
-                binding.catName.text = "Brakes"
+            getString(R.string.brakes) -> {
+                binding.catName.text =   getString(R.string.brakes)
                 brake()
             }
 
-            "Tools" -> {
-                binding.catName.text = "Tools"
+            getString(R.string.tools) -> {
+                binding.catName.text =  getString(R.string.tools)
                 tools()
             }
 
-            "Batteries" -> {
-                binding.catName.text = "Batteries"
+            getString(R.string.batteries) -> {
+                binding.catName.text =  getString(R.string.batteries)
                 batteries()
             }
 
-            "Fan Belts" -> {
-                binding.catName.text = "Fan Belts"
+            getString(R.string.fan_belts) -> {
+                binding.catName.text = getString(R.string.fan_belts)
                 belts()
             }
 
-            "Wheels and Tyres" -> {
-                binding.catName.text = "Wheels and Tyres"
+            getString(R.string.wheels_tyres) -> {
+                binding.catName.text = getString(R.string.wheels_tyres)
                 tyres()
             }
 
@@ -162,8 +161,8 @@ class CategoryDetailsFragment : Fragment(), CategoryViewAdapter.CatImpl {
 
     override fun onItemViewListener(cat: CatItems) {
         val bundle = Bundle().apply {
-            putString(KEY,"catItems")
-            putParcelable("cat",cat)
+            putString(KEY, "catItems")
+            putParcelable("cat", cat)
         }
         findNavController().navigate(R.id.action_categoryDetailsFragment_to_detailsFragment, bundle)
     }
