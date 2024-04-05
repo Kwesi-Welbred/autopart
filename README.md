@@ -1,5 +1,5 @@
 # Online Automobile spare part delivery system
-Munchy, an online food delivery system written in kotlin, java, postgres and ktor as the backend where users can order food and place order.
+Autopart is an android application which deliver services to customers using google map, firebase, room database, jetpack compose etc
 
 ## Overview
 The application contains list of auto mobile spare which user can click to view its details and then, add them to cart. User can like and dislike the spare. 
